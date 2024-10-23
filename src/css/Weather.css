@@ -62,7 +62,7 @@
   display: flex;
   align-items: start;
   gap: 12px;
-  font-size: 22px;
+  font-size: 1rem;
 }
 
 .weather-data .col span {
@@ -344,4 +344,11 @@
   -moz-animation: after-fullmoon linear 5s infinite;
   -webkit-animation: after-fullmoon linear 5s infinite;
   animation: after-fullmoon linear 5s infinite;
+}
+
+@media (max-width: 600px) {
+  
+  .weather {
+    width: 95%;
+  }
 }
