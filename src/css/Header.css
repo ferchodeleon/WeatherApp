@@ -1,0 +1,10 @@
+header {
+  background-color: #e2d4ff;
+  text-align: end;
+  padding: 1rem;
+}
+
+header img {
+  width: 2rem;
+  margin: 0 10px;
+}
