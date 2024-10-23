@@ -8,11 +8,12 @@ import clear_icon from "../assets/clear.png";
 import humidity_icon from "../assets/humidity.png";
 import wind_icon from "../assets/wind.png";
 import { allicons } from "./AllIcons";
+import { useTranslation } from "react-i18next";
 
 const Weather = () => {
   const inputRef = useRef();
-
   const [weatherData, setWeatherData] = useState(false);
+  const [t] = useTranslation("global");
 
   const search = async (city) => {
     if (city == "") {
@@ -73,7 +74,7 @@ const Weather = () => {
               <img src={humidity_icon} alt="Weather Icon" />
               <div>
                 <p>{weatherData.humidity} %</p>
-                <span>Humidity</span>
+                <span>{t("humidity")}</span>
               </div>
             </div>
             <div className="col">
