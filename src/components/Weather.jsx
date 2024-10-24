@@ -4,15 +4,17 @@ import { useRef } from "react";
 import "../css/Weather.css";
 
 import search_icon from "../assets/search.png";
-import clear_icon from "../assets/clear.png";
+import clear_day from "../assets/01d.png";
 import humidity_icon from "../assets/humidity.png";
 import wind_icon from "../assets/wind.png";
 import { allicons } from "./AllIcons";
 import { useTranslation } from "react-i18next";
+import { Loading } from "./Loading";
 
 const Weather = () => {
   const inputRef = useRef();
   const [weatherData, setWeatherData] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [t] = useTranslation("global");
 
   const search = async (city) => {
@@ -26,11 +28,15 @@ const Weather = () => {
         import.meta.env.VITE_APP_ID
       }`;
 
+      setLoading(true);
+
       const response = await fetch(url);
       const data = await response.json();
       console.log("data", data);
 
-      const icon = allicons[data.weather[0].icon] || clear_icon;
+      setLoading(false);
+
+      const icon = allicons[data.weather[0].icon] || clear_day;
 
       setWeatherData({
         humidity: data.main.humidity,
@@ -47,11 +53,11 @@ const Weather = () => {
   };
 
   useEffect(() => {
-    search("Bogotá");
+    search("Bogota");
   }, []);
 
   return (
-    <div className="weather">
+    <div className={`weather fade-in`}>
       <div className="search-bar">
         <input ref={inputRef} type="text" placeholder="Search" />
         <img
@@ -60,8 +66,12 @@ const Weather = () => {
           onClick={() => search(inputRef.current.value)}
         />
       </div>
-      {weatherData ? (
+      {loading ? (
         <>
+          <Loading />
+        </>
+      ) : weatherData ? (
+        <div className={`weather-content ${weatherData ? "fade-in" : ""}`}>
           <img
             className="weather-icon"
             src={weatherData.icon}
@@ -88,17 +98,19 @@ const Weather = () => {
               <img src={wind_icon} alt="" />
               <div>
                 <p>{weatherData.windSpeed} Km/h</p>
-                <span>Wind Speed</span>
+                <span>{t("windSpeed")}</span>
               </div>
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <>
           <div className="not-found">
             <div className="stars" />
             <div className="moon" />
-            <p>Sorry, City not Found</p>
+            <p>
+              Sorry, Your city <span>{inputRef.current.value}</span> not Found
+            </p>
           </div>
         </>
       )}
