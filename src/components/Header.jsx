@@ -17,17 +17,17 @@ export const Header = () => {
   return (
     <header>
       <div className="header-container">
-        <p>Change language</p>
+        <p>{t("changeLanguage")}</p>
         {i18n.language === "es" ? (
           <img
             src={English}
-            alt={iconSpanish}
+            alt={iconEnglish}
             onClick={() => handleChangeLanguage("en")}
           />
         ) : (
           <img
             src={Spanish}
-            alt={iconEnglish}
+            alt={iconSpanish}
             onClick={() => handleChangeLanguage("es")}
           />
         )}
