@@ -7,6 +7,28 @@
   border-radius: 10px;
   background-image: linear-gradient(45deg, #2f4680, #500ae4);
   box-shadow: 10px 10px 20px 10px #ab89f5;
+  animation: fadeIn 1s forwards;
+}
+
+.weather-content {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-self: center;
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .search-bar {
@@ -94,10 +116,15 @@
 
 .not-found p {
   position: absolute;
-  left: calc(50% - 120px);
+  left: calc(50% - 180px);
   top: calc(50% + 70px);
   color: #fff;
   font-size: 1.5rem;
+  text-align: center;
+}
+
+.not-found p span {
+  text-decoration: underline;
 }
 
 .moon {
@@ -350,5 +377,52 @@
 
   .weather {
     width: 95%;
+    padding: 20px;
+    margin-bottom: 2rem;
+  }
+
+  .search-bar input {
+    max-width: 70%;
+    font-size: 1rem;
+  }
+
+  .search-bar img {
+    width: 3rem;
+  }
+
+  .weather-icon {
+    width: 5rem;
+  }
+
+  .temperature {
+    font-size: 3rem;
+  }
+
+  .location {
+    font-size: 2.5rem;
+  }
+
+  .weather-data .col {
+    font-size: 1rem;
+    margin: 2rem auto;
+  }
+
+  .weather-data .col img {
+    place-self: center;
+    width: 2rem;
+  }
+
+  .weather-data .col p {
+    text-align: center;
+  }
+
+  .weather-data .col span{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .weather-data {
+    display: inline-block;
   }
 }
