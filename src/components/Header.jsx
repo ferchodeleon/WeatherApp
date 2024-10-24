@@ -16,19 +16,22 @@ export const Header = () => {
 
   return (
     <header>
-      {i18n.language === "es" ? (
-        <img
-          src={Spanish}
-          alt={iconSpanish}
-          onClick={() => handleChangeLanguage("en")}
-        />
-      ) : (
-        <img
-          src={English}
-          alt={iconEnglish}
-          onClick={() => handleChangeLanguage("es")}
-        />
-      )}
+      <div className="header-container">
+        <p>Change language</p>
+        {i18n.language === "es" ? (
+          <img
+            src={English}
+            alt={iconSpanish}
+            onClick={() => handleChangeLanguage("en")}
+          />
+        ) : (
+          <img
+            src={Spanish}
+            alt={iconEnglish}
+            onClick={() => handleChangeLanguage("es")}
+          />
+        )}
+      </div>
     </header>
   );
 };
