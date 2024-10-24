@@ -2,5 +2,6 @@
   "humidity": "Humedad",
   "iconSpanish": "Icono idioma Español",
   "iconEnglish": "Language icon English",
-  "changeLanguage": "Cambiar lenguaje"
+  "changeLanguage": "Cambiar lenguaje",
+  "windSpeed": "Velocidad del viento"
 }
