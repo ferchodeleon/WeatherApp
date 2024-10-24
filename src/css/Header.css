@@ -1,7 +1,18 @@
 header {
+  display: flex;
+  justify-content: end;
   background-color: #e2d4ff;
-  text-align: end;
   padding: 1rem;
+}
+
+header div p {
+  font-size: .8rem;
+  color: #000000;
+}
+
+.header-container {
+  width: fit-content;
+  text-align: center;
 }
 
 header img {
