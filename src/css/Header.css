@@ -8,6 +8,7 @@ header {
 header div p {
   font-size: .8rem;
   color: #000000;
+  margin-bottom: .5rem;
 }
 
 .header-container {
